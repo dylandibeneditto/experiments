@@ -114,16 +114,14 @@ export default class CodeBreaker {
 
             //  win condition
             if (this.guess.join('') == this.answer) {
-                this.exprt();
-                alert('win');
+                alert(this.exprt());
                 this.terminal = true;
                 return 0;
             }
 
             //  loss condition
             if (this.guesses == 2) {
-                this.exprt();
-                alert('fail');
+                alert(this.answer, this.exprt());
                 this.terminal = true;
                 return 0;
             }
@@ -197,6 +195,6 @@ export default class CodeBreaker {
             e += `\n` + er;
         })
 
-        console.log(e);
+        return e
     }
 }
