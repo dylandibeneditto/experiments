@@ -60,33 +60,33 @@ export default class CodeBreaker {
 
     //  updates current cell to whatever character is provided
     updateCurrentCell(what) {
-        document.querySelector(`#field-${this.guesses+1} > :nth-child(${this.guess.length})`).innerText = what;
+        document.querySelector(`#field-${this.guesses + 1} > :nth-child(${this.guess.length})`).innerText = what;
     }
 
     //  updates whether the guess can be checked
     updateCheck() {
         const e = document.getElementById('num-enter');
 
-        if(this.guess.length==4) {
+        if (this.guess.length == 4) {
             this.canCheck = true
             e.classList.remove('close')
         }
         else {
             this.canCheck = false
             e.classList.add('close')
-        }    
+        }
     }
 
     //  inputs numbers into next open box
     input(number) {
-        if(this.guess.length<4) this.guess.push(number)
+        if (this.guess.length < 4) this.guess.push(number)
         this.updateCheck()
-        this.updateCurrentCell(number)        
+        this.updateCurrentCell(number)
     }
 
     //  removes number from closest open box
     backspace() {
-        if(this.guess.length>0) {
+        if (this.guess.length > 0) {
             this.updateCurrentCell('')
             this.guess.pop()
             this.updateCheck()
@@ -95,29 +95,88 @@ export default class CodeBreaker {
 
     //  function to check and submit current guess (if possible)
     check() {
-        if(this.canCheck) {
+        if (this.canCheck) {
             //  win condition
-            if(this.guess.join('')==this.answer) {
-                this.history.push([4,0])
+            if (this.guess.join('') == this.answer) {
+                this.history.push({dc:[0,1,2,3],c:[]})
                 this.exprt();
                 alert('win');
+                return 0;
             }
 
             //  loss condition
+            if (this.guesses == 3) {
+                this.exprt();
+                alert('fail');
+                return 0;
+            }
 
-            //  continue condition
+            //  continue
+            this.guesses++;
+            this.history.push(this.getFeedback(this.guess))
+            this.guess = [];
         }
+    }
+
+    //  finds solutions for list of numbers
+    getFeedback(list) {
+        let result = {
+            dc: [],
+            c: []
+        }
+
+        //  find character frequency in answer string
+        let answerFreq = {};
+        this.answer.split('').forEach(function (s) {
+            answerFreq[s] ? answerFreq[s]++ : answerFreq[s] = 1;
+        });
+
+        list.forEach((item, index) => {
+            //  if double correct
+            if (item == this.answer.charAt(index)) {
+                result.dc.push(index);
+                answerFreq[item.toString()]--;
+            }
+        })
+
+        list.forEach((item, index) => {
+            //  if correct
+            if (answerFreq[item.toString()] > 0) {
+                result.c.push(index);
+                answerFreq[item.toString()]--;
+            }
+        })
+
+        return result;
     }
 
     //  export function to send results to others
     exprt() {
-        let e = `code breaker #1 - ${this.guesses+1}/3`
+        let e = `code breaker #1 - ${this.guesses + 1}/3`
 
         this.history.forEach(item => {
-            const dc = item[0];
-            const c = item[1];
-            const r = 4-(item[0]+item[1])
-            e+=`\n`+'🟩'.repeat(dc)+'🟨'.repeat(c)+'⬛️'.repeat(r);
+            let er = ''
+            for (let i = 0; i < 4; i++) {
+                let skip = false;
+                item.dc.forEach(it => {
+                    if(it==i) {
+                        er+='🟩'
+                        skip = true;
+                    }
+                })
+                if(!skip) {
+                    item.c.forEach(it => {
+                        if(it==i) {
+                            er+='🟨'
+                            skip = true;
+                        }
+                    })
+                }
+                if(!skip) {
+                    er+='⬛️'
+                }
+            }
+            e += `\n` + er;
         })
 
         console.log(e);
