@@ -39,10 +39,10 @@ html {
 
 .box {
     display: inline-flex;
-    width: 52px;
-    height: 52px;
-    font-size: 24px;
-    border: 1px solid #8c8c8c;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    border: 1.5px solid #8c8c8c;
     justify-content: center;
     align-items: center;
     font-weight: 500;
@@ -54,7 +54,6 @@ html {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding-top: 8px;
 }
 
 .hint {
@@ -94,7 +93,7 @@ html {
     gap: 4px;
 }
 
-.field.active>* {
+.field.active>:not(.hint-double-correct,.hint-correct) {
     border-color: #bababa;
 }
 
@@ -118,7 +117,7 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 4px;
+    padding: 8px;
     border-radius: 2px;
 }
 
@@ -128,6 +127,7 @@ html {
 }
 
 #num-enter {
+    cursor: pointer;
     border: 1.5px solid rgba(67, 160, 71, 0.24);
     background: rgba(67, 160, 71, 0.24);
 }
@@ -148,7 +148,7 @@ html {
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    padding: 8px;
+    padding: 12px;
     background: rgb(69, 69, 69);
     cursor: pointer;
     border-radius: 2px;
