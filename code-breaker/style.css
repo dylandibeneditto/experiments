@@ -27,7 +27,17 @@ html {
     width: max-content;
     display: grid;
     grid-auto-flow: row;
-    grid-template-rows: auto 1fr auto 1fr auto;
+    grid-template-rows: 2fr auto 1fr auto 2fr auto;
+}
+
+.box {
+    display: inline-flex;
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+    border: 1px solid #8c8c8c;
+    justify-content: center;
+    align-items: center;
 }
 
 /* HINTS */
@@ -35,20 +45,15 @@ html {
 #hints {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     padding-top: 8px;
 }
 
 .hint {
     display: flex;
     flex-direction: row;
-    border: 1px solid #bababa;
-    border-radius: .5rem;
     overflow: hidden;
-}
-
-.hint> :not(.hint-nums) {
-    border-left: 1px solid #bababa;
+    gap: 4px;
 }
 
 .hint-double-correct {
@@ -59,26 +64,22 @@ html {
     background: rgba(174, 160, 39, .24);
 }
 
-.hint>* {
-    padding: 24px;
-}
-
 /* GUESS FIELD */
 
 #guess-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.field {
     display: flex;
     flex-direction: row;
     gap: 4px;
 }
 
-#guess-field>* {
-    display: inline-flex;
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    border: 1px solid #bababa;
-    justify-content: center;
-    align-items: center;
+.field.active > * {
+    border-color: #bababa;
 }
 
 /* NUMBER INPUT */
