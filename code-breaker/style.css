@@ -119,15 +119,16 @@ html {
     justify-content: center;
     padding: 8px;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 #num-enter.close {
     border-color: rgba(69, 69, 69, .24);
     background: rgba(69, 69, 69, .24);
+    cursor: auto;
 }
 
 #num-enter {
-    cursor: pointer;
     border: 1.5px solid rgba(67, 160, 71, 0.24);
     background: rgba(67, 160, 71, 0.24);
 }

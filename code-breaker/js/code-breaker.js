@@ -6,8 +6,7 @@ export default class CodeBreaker {
         this.guess = []
 
         this.canCheck = false;
-        /*
-        export example
+        /*  export example
 
         code breaker #1 - 3/3
         🟩🟨⬛️⬛️
@@ -78,10 +77,7 @@ export default class CodeBreaker {
         }    
     }
 
-    /*
-     * inputs numbers into next open box
-     * @param number - number which is inputted into the next open box
-     */
+    //  inputs numbers into next open box
     input(number) {
         if(this.guess.length<4) this.guess.push(number)
         this.updateCheck()
