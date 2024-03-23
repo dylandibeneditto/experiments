@@ -8,7 +8,7 @@ const app = new CodeBreaker(
 //  number button press events
 Array.from(document.getElementById('numbers').children).forEach((item, index) => {
     item.addEventListener('click', () => {
-        if (!app.terminal) {
+        if (!app.terminal && !app.canCheck) {
             app.input(index)
         }
     })
