@@ -21,7 +21,12 @@
 }
 
 html {
-    background: rgb(25, 25, 25);
+    background: rgb(15, 15, 15);
+}
+
+#app {
+    display: grid;
+    grid-auto-flow: row;
 }
 
 #content {
@@ -46,6 +51,46 @@ html {
     justify-content: center;
     align-items: center;
     font-weight: 500;
+}
+
+/* HEADER */
+
+#header {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr auto 1fr;
+    height: fit-content;
+    align-items: center;
+    border-bottom: 1px solid #8c8c8c;
+}
+
+#header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-button > span {
+    padding: 8px;
+    font-size: 32px;
+}
+
+#title {
+    font-size: 24px;
+    font-weight: 600;
 }
 
 /* HINTS */

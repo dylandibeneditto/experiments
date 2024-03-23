@@ -11,92 +11,105 @@
 </head>
 
 <body>
-    <div id="content">
-        <div class="spacer"></div>
-
-        <div id="hints">
-            <div class="hint" id="hint-1">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box hint-double-correct"></div>
-                <div class="box hint-correct"></div>
-
+    <div id="app">
+        <div id="header">
+            <div id="header-left">
+                <a href="../index.html" id="back" class="header-button"><span class="material-symbols-outlined">chevron_left</span></a>
+                <div class="spacer"></div>
             </div>
-            <div class="hint" id="hint-2">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box hint-double-correct"></div>
-                <div class="box hint-correct"></div>
-            </div>
-            <div class="hint" id="hint-3">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box hint-double-correct"></div>
-                <div class="box hint-correct"></div>
-            </div>
-            <div class="hint" id="hint-4">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box hint-double-correct"></div>
-                <div class="box hint-correct"></div>
+            <div id="title">Code Breaker</div>
+            <div id="header-right">
+                <div id="statistics" class="header-button"><span class="material-symbols-outlined">leaderboard</span></div>
+                <div id="how-to-play" class="header-button"><span class="material-symbols-outlined">question_mark</span></div>
             </div>
         </div>
-
-        <div class="spacer"></div>
-
-        <div id="guess-field">
-            <div class="field active" id="field-1">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box hint-double-correct"></div>
-                <div class="box hint-correct"></div>
+        <div id="content">
+            <div class="spacer"></div>
+    
+            <div id="hints">
+                <div class="hint" id="hint-1">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box hint-double-correct"></div>
+                    <div class="box hint-correct"></div>
+    
+                </div>
+                <div class="hint" id="hint-2">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box hint-double-correct"></div>
+                    <div class="box hint-correct"></div>
+                </div>
+                <div class="hint" id="hint-3">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box hint-double-correct"></div>
+                    <div class="box hint-correct"></div>
+                </div>
+                <div class="hint" id="hint-4">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box hint-double-correct"></div>
+                    <div class="box hint-correct"></div>
+                </div>
             </div>
-            <div class="field" id="field-2">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box hint-double-correct"></div>
-                <div class="box hint-correct"></div>
+    
+            <div class="spacer"></div>
+    
+            <div id="guess-field">
+                <div class="field active" id="field-1">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box hint-double-correct"></div>
+                    <div class="box hint-correct"></div>
+                </div>
+                <div class="field" id="field-2">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box hint-double-correct"></div>
+                    <div class="box hint-correct"></div>
+                </div>
+                <div class="field" id="field-3">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box hint-double-correct"></div>
+                    <div class="box hint-correct"></div>
+                </div>
             </div>
-            <div class="field" id="field-3">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box hint-double-correct"></div>
-                <div class="box hint-correct"></div>
-            </div>
-        </div>
-
-        <div class="spacer"></div>
-
-        <div id="input">
-            <div id="commands">
-                <div id="num-enter" class="close"><span class="material-symbols-outlined">check</span></div>
-                <div id="num-back"><span class="material-symbols-outlined">backspace</span></div>
-            </div>
-            <div id="numbers">
-                <div id="num-0">0</div>
-                <div id="num-1">1</div>
-                <div id="num-2">2</div>
-                <div id="num-3">3</div>
-                <div id="num-4">4</div>
-                <div id="num-5">5</div>
-                <div id="num-6">6</div>
-                <div id="num-7">7</div>
-                <div id="num-8">8</div>
-                <div id="num-9">9</div>
+    
+            <div class="spacer"></div>
+    
+            <div id="input">
+                <div id="commands">
+                    <div id="num-enter" class="close"><span class="material-symbols-outlined">check</span></div>
+                    <div id="num-back"><span class="material-symbols-outlined">backspace</span></div>
+                </div>
+                <div id="numbers">
+                    <div id="num-0">0</div>
+                    <div id="num-1">1</div>
+                    <div id="num-2">2</div>
+                    <div id="num-3">3</div>
+                    <div id="num-4">4</div>
+                    <div id="num-5">5</div>
+                    <div id="num-6">6</div>
+                    <div id="num-7">7</div>
+                    <div id="num-8">8</div>
+                    <div id="num-9">9</div>
+                </div>
             </div>
         </div>
     </div>
