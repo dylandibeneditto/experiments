@@ -14,7 +14,7 @@ export default class CodeBreaker {
         🟩🟩🟩🟩
         
         */
-        this.export = '';
+        this.history = [];
 
         this.drawHints();
     }
@@ -91,5 +91,35 @@ export default class CodeBreaker {
             this.guess.pop()
             this.updateCheck()
         }
+    }
+
+    //  function to check and submit current guess (if possible)
+    check() {
+        if(this.canCheck) {
+            //  win condition
+            if(this.guess.join('')==this.answer) {
+                this.history.push([4,0])
+                this.exprt();
+                alert('win');
+            }
+
+            //  loss condition
+
+            //  continue condition
+        }
+    }
+
+    //  export function to send results to others
+    exprt() {
+        let e = `code breaker #1 - ${this.guesses+1}/3`
+
+        this.history.forEach(item => {
+            const dc = item[0];
+            const c = item[1];
+            const r = 4-(item[0]+item[1])
+            e+=`\n`+'🟩'.repeat(dc)+'🟨'.repeat(c)+'⬛️'.repeat(r);
+        })
+
+        console.log(e);
     }
 }

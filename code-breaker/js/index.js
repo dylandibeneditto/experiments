@@ -10,16 +10,19 @@ const app = new CodeBreaker({
     answer: '1234'
 })
 
-
 //  number button press events
-Array.from(document.getElementById("numbers").children).forEach((item, index) => {
+Array.from(document.getElementById('numbers').children).forEach((item, index) => {
     item.addEventListener('click', () => {
         app.input(index)
     })
 })
 
-
 //  backspace press event
-document.getElementById('num-back').addEventListener("click", () => {
+document.getElementById('num-back').addEventListener('click', () => {
     app.backspace()
 })
+
+//  enter press event
+document.getElementById('num-enter').addEventListener('click', ()=> [
+    app.check()
+])
