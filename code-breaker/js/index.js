@@ -13,16 +13,22 @@ const app = new CodeBreaker({
 //  number button press events
 Array.from(document.getElementById('numbers').children).forEach((item, index) => {
     item.addEventListener('click', () => {
-        app.input(index)
+        if(!app.terminal) {
+            app.input(index)
+        }
     })
 })
 
 //  backspace press event
 document.getElementById('num-back').addEventListener('click', () => {
-    app.backspace()
+    if(!app.terminal) {
+        app.backspace()
+    }
 })
 
 //  enter press event
-document.getElementById('num-enter').addEventListener('click', ()=> [
-    app.check()
-])
+document.getElementById('num-enter').addEventListener('click', ()=> {
+    if(!app.terminal) {
+        app.check()
+    }
+})

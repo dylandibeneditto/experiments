@@ -5,6 +5,7 @@ export default class CodeBreaker {
         this.guesses = 0;
         this.guess = []
 
+        this.terminal = false;
         this.canCheck = false;
         /*  export example
 
@@ -115,13 +116,15 @@ export default class CodeBreaker {
             if (this.guess.join('') == this.answer) {
                 this.exprt();
                 alert('win');
+                this.terminal = true;
                 return 0;
             }
 
             //  loss condition
-            if (this.guesses == 3) {
+            if (this.guesses == 2) {
                 this.exprt();
                 alert('fail');
+                this.terminal = true;
                 return 0;
             }
 
