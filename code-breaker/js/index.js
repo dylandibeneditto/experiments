@@ -27,3 +27,14 @@ document.getElementById('num-enter').addEventListener('click', () => {
         app.check()
     }
 })
+
+//  markup on press events
+Array.from(document.querySelectorAll('.box:not(.hint-double-correct,.hint-correct)')).forEach(item => {
+    item.addEventListener('click',  () => {
+        console.log({item})
+        if(!app.terminal && !item.closest('.active') && item.innerHTML) {
+            let num = item.getAttribute('markup') ? parseInt(item.getAttribute('markup')) : 0;
+            item.setAttribute("markup", (num+1)%4)
+        }
+    })
+})

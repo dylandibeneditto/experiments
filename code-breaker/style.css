@@ -70,6 +70,19 @@ html {
     justify-content: center;
     align-items: center;
     font-weight: 500;
+    overflow: hidden;
+}
+
+/* BOX MARKUP */
+
+.box[markup="1"] {
+    background: var(--semantic-green);
+}
+.box[markup="2"] {
+    background: var(--semantic-yellow);
+}
+.box[markup="3"] {
+    background: var(--semantic-red);
 }
 
 /* HEADER */
