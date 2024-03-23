@@ -2,10 +2,10 @@ import CodeBreaker from "./code-breaker.js";
 
 const app = new CodeBreaker({
     hints: [
-        { content: [1, 2, 3, 4], doubleCorrect: 4, correct: 0 },
-        { content: [1, 2, 3, 4], doubleCorrect: 4, correct: 0 },
-        { content: [1, 2, 3, 4], doubleCorrect: 4, correct: 0 },
-        { content: [1, 2, 3, 4], doubleCorrect: 4, correct: 0 },
+        [1,2,3,4],
+        [1,2,3,4],
+        [1,2,3,4],
+        [1,2,3,4],
     ],
     answer: '1234'
 })

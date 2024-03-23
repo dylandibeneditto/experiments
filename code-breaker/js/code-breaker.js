@@ -24,37 +24,37 @@ export default class CodeBreaker {
     drawHints() {
         document.getElementById("hints").innerHTML = `
         <div class="hint" id="hint-1">
-            <div class="box">${this.hints[0].content[0]}</div>
-            <div class="box">${this.hints[0].content[1]}</div>
-            <div class="box">${this.hints[0].content[2]}</div>
-            <div class="box">${this.hints[0].content[3]}</div>
-            <div class="box hint-double-correct">${this.hints[0].doubleCorrect}</div>
-            <div class="box hint-correct">${this.hints[0].correct}</div>
+            <div class="box">${this.hints[0][0]}</div>
+            <div class="box">${this.hints[0][1]}</div>
+            <div class="box">${this.hints[0][2]}</div>
+            <div class="box">${this.hints[0][3]}</div>
+            <div class="box hint-double-correct">${this.getFeedback(this.hints[0]).dc.length}</div>
+            <div class="box hint-correct">${this.getFeedback(this.hints[0]).c.length}</div>
 
         </div>
         <div class="hint" id="hint-2">
-            <div class="box">${this.hints[1].content[0]}</div>
-            <div class="box">${this.hints[1].content[1]}</div>
-            <div class="box">${this.hints[1].content[2]}</div>
-            <div class="box">${this.hints[1].content[3]}</div>
-            <div class="box hint-double-correct">${this.hints[1].doubleCorrect}</div>
-            <div class="box hint-correct">${this.hints[1].correct}</div>
+            <div class="box">${this.hints[1][0]}</div>
+            <div class="box">${this.hints[1][1]}</div>
+            <div class="box">${this.hints[1][2]}</div>
+            <div class="box">${this.hints[1][3]}</div>
+            <div class="box hint-double-correct">${this.getFeedback(this.hints[1]).dc.length}</div>
+            <div class="box hint-correct">${this.getFeedback(this.hints[1]).c.length}</div>
         </div>
         <div class="hint" id="hint-3">
-            <div class="box">${this.hints[2].content[0]}</div>
-            <div class="box">${this.hints[2].content[1]}</div>
-            <div class="box">${this.hints[2].content[2]}</div>
-            <div class="box">${this.hints[2].content[3]}</div>
-            <div class="box hint-double-correct">${this.hints[2].doubleCorrect}</div>
-            <div class="box hint-correct">${this.hints[2].correct}</div>
+            <div class="box">${this.hints[2][0]}</div>
+            <div class="box">${this.hints[2][1]}</div>
+            <div class="box">${this.hints[2][2]}</div>
+            <div class="box">${this.hints[2][3]}</div>
+            <div class="box hint-double-correct">${this.getFeedback(this.hints[2]).dc.length}</div>
+            <div class="box hint-correct">${this.getFeedback(this.hints[2]).c.length}</div>
         </div>
         <div class="hint" id="hint-4">
-            <div class="box">${this.hints[3].content[0]}</div>
-            <div class="box">${this.hints[3].content[1]}</div>
-            <div class="box">${this.hints[3].content[2]}</div>
-            <div class="box">${this.hints[3].content[3]}</div>
-            <div class="box hint-double-correct">${this.hints[3].doubleCorrect}</div>
-            <div class="box hint-correct">${this.hints[3].correct}</div>
+            <div class="box">${this.hints[3][0]}</div>
+            <div class="box">${this.hints[3][1]}</div>
+            <div class="box">${this.hints[3][2]}</div>
+            <div class="box">${this.hints[3][3]}</div>
+            <div class="box hint-double-correct">${this.getFeedback(this.hints[3]).dc.length}</div>
+            <div class="box hint-correct">${this.getFeedback(this.hints[3]).c.length}</div>
         </div>
         `
     }
