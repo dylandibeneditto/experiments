@@ -3,7 +3,7 @@
     
     --text: rgb(255,255,255);
     --hint: rgb(220,220,220);
-    --feedback: rgb(200,200,200);
+    --feedback: rgba(200, 200, 200, 0.8);
     
     --normal-border: rgba(140, 140, 140, .65);
     --active-border: rgb(140, 140, 140);
@@ -34,13 +34,43 @@
     padding: 0;
     color: var(--text);
     font-family: Inter;
-    transition: background-color .2s ease, border-color .2s ease;
+    transition: background-color .2s ease, border-color .2s ease, opacity .2s ease;
     user-select: none;
 }
 
 html {
     background: var(--background);
     transition: background-color 0s linear;
+}
+
+#screen-popup {
+    visibility: hidden;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    font-size: 40px;
+    width: 0;
+    opacity: 0;
+}
+
+@media(max-height:660px) {
+    #app {
+        visibility: none;
+        opacity: 0;
+    }
+
+    #content {
+        height: 0px;
+        overflow: hidden;
+    }
+
+    #screen-popup {
+        visibility: visible;
+        opacity: 1;
+        width: fit-content;
+    }
 }
 
 #app {
