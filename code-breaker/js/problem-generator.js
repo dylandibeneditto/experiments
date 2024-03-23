@@ -20,7 +20,6 @@ export default function generateProblem(duplicates = false) {
     const getHints = (a) => {
         let result = []
         let order = [1,2,3,4].sort(() => Math.random() - 0.5)
-        console.log(order)
         for(let i = 0; i < 4; i++) {
             let ar = []
             for(let j = 0; j < 4; j++) {
