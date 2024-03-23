@@ -81,11 +81,13 @@ html {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .header-button > span {
     padding: 8px;
     font-size: 32px;
+    color: rgb(199, 199, 199);
 }
 
 #title {
