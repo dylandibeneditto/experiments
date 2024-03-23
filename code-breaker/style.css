@@ -6,11 +6,17 @@
         'opsz' 24
 }
 
+@font-face {
+    font-family: Inter;
+    src: url('./static/Inter/Inter-VariableFont_slnt\,wght.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
     color: white;
-    font-family: helvetica;
+    font-family: Inter;
+    transition: background-color .2s ease, border-color .2s ease;
 }
 
 html {
@@ -38,6 +44,7 @@ html {
     border: 1px solid #8c8c8c;
     justify-content: center;
     align-items: center;
+    font-weight: 500;
 }
 
 /* HINTS */
@@ -54,6 +61,14 @@ html {
     flex-direction: row;
     overflow: hidden;
     gap: 4px;
+}
+
+.hint > * {
+    color: rgb(228, 228, 228);
+}
+
+.hint-double-correct, .hint-correct {
+    color: rgb(199, 199, 199);
 }
 
 .hint-double-correct {
@@ -78,7 +93,7 @@ html {
     gap: 4px;
 }
 
-.field.active > * {
+.field.active>* {
     border-color: #bababa;
 }
 
@@ -98,12 +113,17 @@ html {
     width: 100%;
 }
 
-#commands > * {
+#commands>* {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 4px;
     border-radius: 2px;
+}
+
+#num-enter.close {
+    border-color: rgba(69, 69, 69, .24);
+    background: rgba(69, 69, 69, .24);
 }
 
 #num-enter {
@@ -112,7 +132,7 @@ html {
 }
 
 #num-back {
-    border: 1.5px solid rgba(160,67,67,.24);
+    border: 1.5px solid rgba(160, 67, 67, .24);
     background: rgba(160, 67, 67, 0.24);
 }
 
