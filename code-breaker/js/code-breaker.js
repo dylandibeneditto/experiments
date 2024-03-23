@@ -77,6 +77,16 @@ export default class CodeBreaker {
         }
     }
 
+    updateFeedback(feedback) {
+        document.querySelector(`#field-${this.guesses + 1} > .hint-double-correct`).innerText = feedback.dc.length;
+        document.querySelector(`#field-${this.guesses + 1} > .hint-correct`).innerText = feedback.c.length;
+    }
+
+    updateLine() {
+        document.querySelector(`#field-${this.guesses}`).classList.remove('active')
+        document.querySelector(`#field-${this.guesses + 1}`).classList.add('active')
+    }
+
     //  inputs numbers into next open box
     input(number) {
         if (this.guess.length < 4) this.guess.push(number)
@@ -96,9 +106,13 @@ export default class CodeBreaker {
     //  function to check and submit current guess (if possible)
     check() {
         if (this.canCheck) {
+
+            const f = this.getFeedback(this.guess);
+            this.history.push(f)
+            this.updateFeedback(f)
+
             //  win condition
             if (this.guess.join('') == this.answer) {
-                this.history.push({dc:[0,1,2,3],c:[]})
                 this.exprt();
                 alert('win');
                 return 0;
@@ -113,8 +127,9 @@ export default class CodeBreaker {
 
             //  continue
             this.guesses++;
-            this.history.push(this.getFeedback(this.guess))
+            this.updateLine();
             this.guess = [];
+            this.updateCheck();
         }
     }
 
