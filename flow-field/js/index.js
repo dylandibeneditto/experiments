@@ -6,7 +6,7 @@ let s = {
     w: window.innerWidth,
     h: window.innerHeight,
     //  frequency of vector map
-    f: Math.max(window.innerWidth/2, window.innerHeight/2)
+    f: Math.min(window.innerWidth/2, window.innerHeight/2)
 }
 
 let pcount = 10000;
