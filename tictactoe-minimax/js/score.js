@@ -9,56 +9,45 @@
  * 
  */
 export default function score(b) {
-    const kernel = [[1, 1], [1, 0], [1, -1], [0, -1]]  // list of directions around searched block which need to be checked
+    const winningConfigs = [
+        // Rows
+        [[0, 0], [0, 1], [0, 2]],
+        [[1, 0], [1, 1], [1, 2]],
+        [[2, 0], [2, 1], [2, 2]],
+        // Columns
+        [[0, 0], [1, 0], [2, 0]],
+        [[0, 1], [1, 1], [2, 1]],
+        [[0, 2], [1, 2], [2, 2]],
+        // Diagonals
+        [[0, 0], [1, 1], [2, 2]],
+        [[0, 2], [1, 1], [2, 0]]
+    ];
 
-    for (let y = 0; y < 3; y++) {
-        for (let x = 0; x < 3; x++) {
-            if (b[y][x] == 1) {
-                if (isThreeInRow(kernel, b, x, y, 1)) {
-                    return 10 // win case for 1
-                }
-            } else if (b[y][x] == 2) {
-                if (isThreeInRow(kernel, b, x, y, 2)) {
-                    return -10 // win case for 2
-                }
-            } else {
-                continue;
-            }
+    // Check for winner
+    for (const config of winningConfigs) {
+        const [p1, p2, p3] = config.map(([y, x]) => b[y][x]);
+        if (p1 !== 0 && p1 === p2 && p1 === p3) {
+            if (p1 === 1) return 10; // Player 1 wins
+            if (p1 === 2) return -10; // Player 2 wins
         }
     }
 
-    return 0;  // tie
+    // Check for draw
+    if (findMoves(b).length === 0) {
+        return 0; // Draw
+    }
+
+    return null; // Game not finished
 }
 
-function isThreeInRow(kernel, b, x, y, search) {
-    const result = kernel.filter(item => {  // loop through kernel
-        let yn = y + item[0];
-        let xn = x + item[1];
-        let count = 0;  // variable to track length of row
-        if (yn >= 0 && yn < 3 && xn >= 0 && xn < 3) {  // make sure value is within constraints of array
-            if (b[yn][xn] == search) {
-                let [ya, xa] = [yn, xn];
-
-                let [yan, xan] = [ya + item[0], xa + item[1]]
-                if (yan >= 0 && yan < 3 && xan >= 0 && xan < 3) {  // make sure value is within constraints of array
-                    if (b[yan][xan] == search) count++;
-                }
-
-
-                [ya, xa] = [yn, xn]
-
-                [yan, xan] = [ya - item[0], xa - item[1]]
-                if (yan >= 0 && yan < 3 && xan >= 0 && xan < 3) {  // make sure value is within constraints of array
-                    if (b[yan][xan] == search) count++;
-                }
+function findMoves(b) {
+    const result = [];
+    for (let y = 0; y < 3; y++) {
+        for (let x = 0; x < 3; x++) {
+            if (b[y][x] === 0) {
+                result.push([y, x]);
             }
         }
-
-        if (count == 2) {  // win
-            return true;
-        }
-    })
-    if (result.length > 0) {
-        return true
     }
+    return result;
 }

@@ -1,3 +1,4 @@
+import minimax from "./minimax.js"
 import score from "./score.js";
 
 const s = {
@@ -13,12 +14,6 @@ let board = [
     [0, 0, 0],
     [0, 0, 0],
 ]
-
-console.log(score([
-    [2,2,2],
-    [2,0,0],
-    [1,0,0]
-]))
 
 //  board display given board and id
 function display(b, id) {
@@ -56,6 +51,11 @@ Array.from(document.querySelectorAll('#playBoard > * > *')).forEach(item => {
         if (board[parseInt(coord[0])][parseInt(coord[1])] == 0 && move == s.player) {
             board[parseInt(coord[0])][parseInt(coord[1])] = s.player + 1;
             alterDisplay(s.player + 1, [parseInt(coord[0]), parseInt(coord[1])], 'playBoard')
+            move = 1 - move;
+            const bestMove = minimax(board,true)
+            document.getElementById('score').innerHTML = bestMove.value;
+            board[bestMove.move[0]][bestMove.move[1]] = s.ai+1;
+            alterDisplay(s.ai + 1, bestMove.move, 'playBoard')
             move = 1 - move;
         }
     })
