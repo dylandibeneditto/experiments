@@ -8,3 +8,16 @@ canvas {
     width: 100vw;
     height: 100vh;
 }
+
+#title {
+    font-family: monospace;
+    transform: translate(-50%,0);
+    z-index: 999;
+    color: white;
+    left: 50vw;
+    position: absolute;
+    padding: 8px;
+    background: rgba(255,255,255,.1);
+    border-radius: .5rem;
+    backdrop-filter: blur(1rem);
+}
