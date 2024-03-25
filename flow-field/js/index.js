@@ -6,23 +6,24 @@ let s = {
     w: window.innerWidth,
     h: window.innerHeight,
     //  frequency of vector map
-    f: 1000
+    f: Math.max(window.innerWidth/2, window.innerHeight/2)
 }
 
-let pcount = 50000;
+let pcount = 40000;
 //let a = 0;
 
 const colors = [
     (c)=>{return [255,c*255,c*255,c]}, // red
     (c)=>{return [255,(c*100)+155,c*255,c]}, // orange
-    (c)=>{return [255,255,c*255,c]}, // yellow
-    (c)=>{return [c*255,255,c*255,c]}, // green
-    (c)=>{return [c*255,c*255,255,c]}, // blue
-    (c)=>{return [(c*150)+105,c*255,255,c]}, // indigo
+    //(c)=>{return [255,255,c*255,c]}, // yellow
+    //(c)=>{return [c*255,255,c*255,c]}, // green
+    //(c)=>{return [c*255,c*255,255,c]}, // blue
+    //(c)=>{return [(c*150)+105,c*255,255,c]}, // indigo
+    (c)=>{return [255,c*255,(c*100)+155,c]}, // purply red
     (c)=>{return [255,c*255,255,c]}, // purple
 ]
 
-let curColor = 5;
+let curColor = colors.length-1;
 
 let vs = perlinVectors(s.w,s.h);
 
