@@ -27,7 +27,7 @@ canvas {
     grid-template-columns: 1fr auto 1fr;
 }
 
-#header > * {
+#header > :not(#header-right) {
     z-index: 999;
     margin: 0px;
     color: white;
