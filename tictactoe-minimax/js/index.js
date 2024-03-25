@@ -36,8 +36,7 @@ function display(b, id) {
 }
 
 function alterDisplay(val, index, id) {
-    // i'll have to fix this later
-    document.getElementById(`${index.join('')}`).innerHTML = s.lookup[val]
+    document.querySelector(`#${id} > * > #\\3${index.join(' ')}`).innerHTML = s.lookup[val]
 }
 
 display(board, 'playBoard')
