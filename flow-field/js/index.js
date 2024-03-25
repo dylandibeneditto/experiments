@@ -28,12 +28,12 @@ function animate() {
     for(let y = 0; y < s.f; y++) {
         vs.push([])
         for(let x = 0; x < s.f; x++) {
-            vs[y][x] = {x:a,y:a}
+            vs[y][x] = a
             c.beginPath()
             const px = x*(s.w/s.f)+((s.w/s.f)/2)
             const py = y*(s.h/s.f-1)+((s.h/s.f)/2)
             c.moveTo(px,py)
-            c.lineTo(px+Math.sin(vs[y][x].x)*((s.w/s.f)/2),py+Math.cos(vs[y][x].y)*((s.h/s.f)/2))
+            c.lineTo(px+Math.sin(vs[y][x])*((s.w/s.f)/2),py+Math.cos(vs[y][x])*((s.h/s.f)/2))
             c.stroke()
         }
     }    
