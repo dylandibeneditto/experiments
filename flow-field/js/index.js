@@ -4,10 +4,10 @@ let s = {
     w: window.innerWidth,
     h: window.innerHeight,
     //  frequency of vector map
-    f: 1000
+    f: 1
 }
 
-let pcount = 30000;
+let pcount = 45000;
 let a = 0;
 
 let vs = [];
@@ -37,7 +37,10 @@ function animate() {
     for (let y = 0; y < s.f; y++) {
         vs.push([])
         for (let x = 0; x < s.f; x++) {
-            vs[y][x] = a + x - y
+            //vs[y][x] = Math.random()*(2*Math.PI)
+            //vs[y][x] = a
+            //vs[y][x] = a + x + y
+            vs[y][x] = a
             /*c.beginPath()
             const px = x * (s.w / s.f) + ((s.w / s.f) / 2)
             const py = y * (s.h / s.f) + ((s.h / s.f) / 2)
@@ -51,7 +54,7 @@ function animate() {
         item.pos(vs)
         const color = Math.min(item.age/2000,1);
         c.fillStyle = `rgba(255, ${color*255}, ${color*255}, ${color})`;
-        c.fillRect(item.x - .5, item.y - .5, 1, 1)
+        c.fillRect(item.x, item.y, 1, 1)
     })
 
     requestAnimationFrame(animate)
