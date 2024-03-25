@@ -1,3 +1,5 @@
+import Particle from "./particle.js";
+
 let s = {
     w: window.innerWidth,
     h: window.innerHeight,
@@ -16,6 +18,7 @@ canvas.height = s.h;
 
 const c = canvas.getContext('2d');
 
+const part = new Particle(400,400,1,s)
 
 animate();
 
@@ -36,6 +39,10 @@ function animate() {
             c.lineTo(px+Math.sin(vs[y][x])*((s.w/s.f)/2),py+Math.cos(vs[y][x])*((s.h/s.f)/2))
             c.stroke()
         }
-    }    
+    }
+
+    part.pos(vs)
+    c.fillRect(part.x, part.y,10,10)
+
     requestAnimationFrame(animate)
 }
