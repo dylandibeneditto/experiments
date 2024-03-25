@@ -1,0 +1,46 @@
+* {
+    font-family: monospace;
+}
+
+.tboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.trow {
+    display: flex;
+    flex-direction: row;
+}
+
+.trow > * {
+    border: 1px solid black;
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.trow > :first-child {
+    border-left-color: transparent;
+}
+
+.tboard > :first-child > * {
+    border-top-color: transparent;
+}
+
+.trow > :last-child {
+    border-right-color: transparent;
+}
+
+.tboard > :last-child > * {
+    border-bottom-color: transparent;
+}
+
+#playBoard {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+}
