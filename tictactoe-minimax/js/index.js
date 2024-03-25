@@ -1,3 +1,5 @@
+import score from "./score.js";
+
 const s = {
     player: 0,
     ai: 1,
@@ -11,6 +13,12 @@ let board = [
     [0, 0, 0],
     [0, 0, 0],
 ]
+
+console.log(score([
+    [2,2,2],
+    [2,0,0],
+    [1,0,0]
+]))
 
 //  board display given board and id
 function display(b, id) {
