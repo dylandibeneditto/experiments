@@ -13,11 +13,16 @@ let pcount = 50000;
 //let a = 0;
 
 const colors = [
-    (c)=>{return [255,c*255,255,c]}, // purple
     (c)=>{return [255,c*255,c*255,c]}, // red
+    (c)=>{return [255,(c*100)+155,c*255,c]}, // orange
+    (c)=>{return [255,255,c*255,c]}, // yellow
+    (c)=>{return [c*255,255,c*255,c]}, // green
+    (c)=>{return [c*255,c*255,255,c]}, // blue
+    (c)=>{return [(c*150)+105,c*255,255,c]}, // indigo
+    (c)=>{return [255,c*255,255,c]}, // purple
 ]
 
-let curColor = 1
+let curColor = 5;
 
 let vs = perlinVectors(s.w,s.h);
 
@@ -25,6 +30,10 @@ const canvas = document.getElementById('canvas');
 
 canvas.width = s.w;
 canvas.height = s.h;
+canvas.addEventListener('click', ()=> {
+    curColor = (curColor+1)%colors.length;
+})
+
 
 const c = canvas.getContext('2d');
 
