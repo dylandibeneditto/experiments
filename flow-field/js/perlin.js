@@ -1,4 +1,4 @@
-export default function perlinVectors(width, height, scale = 10, octaves = 6, persistence = 0.5, lacunarity = 2.0, seed = null) {
+export default function perlinVectors(width, height, scale = 20, octaves = 5, persistence = 6, lacunarity = 2.0, seed = null) {
     function perlin(x, y) {
         const x0 = Math.floor(x);
         const y0 = Math.floor(y);

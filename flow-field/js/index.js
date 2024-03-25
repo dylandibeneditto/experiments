@@ -6,11 +6,18 @@ let s = {
     w: window.innerWidth,
     h: window.innerHeight,
     //  frequency of vector map
-    f: 10
+    f: 1000
 }
 
-let pcount = 90000;
+let pcount = 50000;
 //let a = 0;
+
+const colors = [
+    (c)=>{return [255,c*255,255,c]}, // purple
+    (c)=>{return [255,c*255,c*255,c]}, // red
+]
+
+let curColor = 1
 
 let vs = perlinVectors(s.w,s.h);
 
@@ -54,8 +61,8 @@ function animate() {
 
     part.forEach(item => {
         item.pos(vs)
-        const color = Math.min(item.age/2000,1);
-        c.fillStyle = `rgba(255, ${color*255}, ${color*255}, ${color})`;
+        const color = Math.min(item.age/10000,1);
+        c.fillStyle = `rgba(${colors[curColor](color)[0]}, ${colors[curColor](color)[1]}, ${colors[curColor](color)[2]}, ${colors[curColor](color)[3]})`;
         c.fillRect(item.x, item.y, 1, 1)
     })
 

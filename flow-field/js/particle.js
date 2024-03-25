@@ -7,6 +7,7 @@ export default class Particle {
 
     pos(vs) {
         this.age++;
+        if(this.age > 2000) this.restart();
         if(this.x<=0||this.y<=0||this.x>=this.s.w||this.y>=this.s.h) {
             [this.x,this.y] = this.restart();
         }
