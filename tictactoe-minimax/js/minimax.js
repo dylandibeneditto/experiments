@@ -3,11 +3,11 @@ import score from "./score.js";
 const MAX_DEPTH = 20;
 
 export default function minimax(b, maximizing, depth = 0) {
-    const currentScore = score(b);
+    const currentScore = score(b)!==0&& score(b)!==null ? score(b)+depth : score(b);
 
     // Check if the game is over or depth limit is reached
     if (currentScore !== null || depth === MAX_DEPTH) {
-        return { value: (-currentScore)-(depth/MAX_DEPTH), move: null };
+        return { value: (-currentScore), move: null };
     }
 
     if (maximizing) {

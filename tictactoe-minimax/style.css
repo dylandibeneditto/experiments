@@ -2,6 +2,10 @@
     font-family: monospace;
 }
 
+html {
+    background: rgb(19, 19, 19);
+}
+
 .tboard {
     display: flex;
     flex-direction: column;
@@ -13,13 +17,14 @@
 }
 
 .trow > * {
-    border: 1px solid black;
+    border: 1px solid white;
     width: 100px;
     height: 100px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 50px;
+    color: white;
 }
 
 .trow > :first-child {
@@ -51,6 +56,25 @@
 #score {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 12px;
+    align-items: last baseline;
+    width: 40px;
+    border-radius: 4px;
+    background: rgb(67, 67, 67);
+    padding-bottom: 4px;
+    color: white;
+}
+
+#score-background {
+    transition: all .2s ease;
+    border-radius: 4px;
+    width: inherit;
+    bottom: 0px;
+    height: 50%;
+    background: rgba(206, 206, 206, 0.439);
+    position: absolute;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }

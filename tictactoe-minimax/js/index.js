@@ -44,8 +44,9 @@ function alterDisplay(val, index, id) {
 }
 
 function displayScore(value) {
-
-    document.getElementById('score').innerHTML = value;
+    console.log((value + 10) / 20)
+    document.getElementById('score-background').style.height = `${100 * ((value + 10) / 20)}%`
+    document.getElementById('snum').innerHTML = value;
 }
 
 display(board, 'playBoard')
@@ -58,20 +59,20 @@ Array.from(document.querySelectorAll('#playBoard > * > *')).forEach(item => {
             board[parseInt(coord[0])][parseInt(coord[1])] = s.player + 1;
             alterDisplay(s.player + 1, [parseInt(coord[0]), parseInt(coord[1])], 'playBoard')
             move = 1 - move;
-            const bestMove = minimax(board,true)
+            const bestMove = minimax(board, true)
             console.log(bestMove)
-            if(bestMove.move) {
-                board[bestMove.move[0]][bestMove.move[1]] = s.ai+1;
+            if (bestMove.move) {
+                board[bestMove.move[0]][bestMove.move[1]] = s.ai + 1;
                 alterDisplay(s.ai + 1, bestMove.move, 'playBoard')
                 displayScore(bestMove.value)
                 move = 1 - move;
-                if(score(board)!==null) {
+                if (score(board) !== null) {
                     isTerminal = true;
-                    console.log("terminal", score(board))
+                    displayScore(score(board))
                 }
             } else {
                 isTerminal = true;
-                console.log("terminal", score(board))
+                displayScore(score(board))
             }
         }
     })
