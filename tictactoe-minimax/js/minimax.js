@@ -7,7 +7,7 @@ export default function minimax(b, maximizing, depth = 0) {
 
     // Check if the game is over or depth limit is reached
     if (currentScore !== null || depth === MAX_DEPTH) {
-        return { value: -currentScore, move: null };
+        return { value: (-currentScore)-(depth/MAX_DEPTH), move: null };
     }
 
     if (maximizing) {
@@ -25,7 +25,6 @@ export default function minimax(b, maximizing, depth = 0) {
                 }
             }
         });
-        console.log(bestValue, bestMove, "max", depth)
         return { value: bestValue, move: bestMove };
     } else {
         let bestValue = Infinity;

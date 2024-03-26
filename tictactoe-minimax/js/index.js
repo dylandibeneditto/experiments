@@ -8,6 +8,7 @@ const s = {
 }
 
 let move = 0;
+let isTerminal = false;
 
 let board = [
     [0, 0, 0],
@@ -42,21 +43,36 @@ function alterDisplay(val, index, id) {
     document.querySelector(`#${id} > * > #\\3${index.join(' ')}`).innerHTML = s.lookup[val]
 }
 
+function displayScore(value) {
+
+    document.getElementById('score').innerHTML = value;
+}
+
 display(board, 'playBoard')
 
 //  event listeners for click
 Array.from(document.querySelectorAll('#playBoard > * > *')).forEach(item => {
     item.addEventListener('click', () => {
         const coord = item.id.split('')
-        if (board[parseInt(coord[0])][parseInt(coord[1])] == 0 && move == s.player) {
+        if (board[parseInt(coord[0])][parseInt(coord[1])] == 0 && move == s.player && !isTerminal) {
             board[parseInt(coord[0])][parseInt(coord[1])] = s.player + 1;
             alterDisplay(s.player + 1, [parseInt(coord[0]), parseInt(coord[1])], 'playBoard')
             move = 1 - move;
             const bestMove = minimax(board,true)
-            document.getElementById('score').innerHTML = bestMove.value;
-            board[bestMove.move[0]][bestMove.move[1]] = s.ai+1;
-            alterDisplay(s.ai + 1, bestMove.move, 'playBoard')
-            move = 1 - move;
+            console.log(bestMove)
+            if(bestMove.move) {
+                board[bestMove.move[0]][bestMove.move[1]] = s.ai+1;
+                alterDisplay(s.ai + 1, bestMove.move, 'playBoard')
+                displayScore(bestMove.value)
+                move = 1 - move;
+                if(score(board)!==null) {
+                    isTerminal = true;
+                    console.log("terminal", score(board))
+                }
+            } else {
+                isTerminal = true;
+                console.log("terminal", score(board))
+            }
         }
     })
 })
