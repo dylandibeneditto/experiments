@@ -83,6 +83,15 @@ div > hr {
     box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.056);
 }
 
+.title > a {
+    color: var(--text3);
+    transition: color .2s ease;
+}
+
+.title > a:hover {
+    color: var(--text);
+}
+
 #experiments > * > :last-child {
     color: var(--text2);
     padding: 8px;
@@ -93,5 +102,11 @@ div > hr {
     #title-less-emphasis {
         display: none;
         opacity: 0;
+    }
+}
+
+@media (width < 670px) {
+    #experiments {
+        justify-content: center;
     }
 }
