@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./main-page/styles.css">
     <title>web experiments</title>
 </head>
+
 <body>
-    work in progress!
-    <a href="code-breaker/index.html">code breaker</a>
-    <a href="flow-field/index.html">flow field</a>
-    <a href="tictactoe-minimax/index.html">tictactoe-minimax</a>
+    <div id="content">
+        <div id="title">web experiments <div id="title-less-emphasis">by dylan dibeneditto</div>
+        </div>
+        <div id="experiments">
+            <a href="code-breaker/index.html">
+                <div>code breaker</div>
+                <hr>
+                <div>A game about trying to crack a code given 4 clues with the only provided information being the number of digits in the correct positions</div>
+            </a>
+            <a href="flow-field/index.html">
+                <div>
+                    flow-field
+                    <span class="material-symbols-outlined">link</span>
+                </div>
+                <hr>
+                <div>A generative art experiment which uses perlin noise to generate a 2D array of angles which a particle system moves along</div>
+            </a>
+            <a href="tictactoe-minimax/index.html">
+                <div>tictactoe-minimax</div>
+                <hr>
+                <div>AI algorithm which plays solved tictactoe using the minimax algorithm and is impossible to beat</div>
+            </a>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
