@@ -1,3 +1,9 @@
 * {
     margin: 0;
 }
+
+pre {
+    letter-spacing: calc(.15rem / 1);
+    font-size: calc(.3rem / 1);
+    line-height: calc(.3rem / 1);
+}
