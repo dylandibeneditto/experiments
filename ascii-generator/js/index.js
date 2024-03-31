@@ -17,7 +17,7 @@ fileInput.onchange = e => {
             canvas.width = width;
             canvas.height = height;
 
-            c.drawImage(image, 0, 0,width,height);
+            c.drawImage(image, 0, 0, width, height);
             const grayScales = convertToGrayScales(c, width, height);
 
             drawAscii(grayScales, width);
@@ -67,7 +67,7 @@ const drawAscii = grayScales => {
 
         if ((index + 1) % canvas.width === 0) {
             nextChars += "\n";
-          }
+        }
         return asciiEl + nextChars;
     }, "")
     console.log(ascii)
@@ -78,15 +78,15 @@ const MAXIMUM_WIDTH = 100;
 const MAXIMUM_HEIGHT = 100;
 
 const clampDimensions = (width, height) => {
-  if (height > MAXIMUM_HEIGHT) {
-    const reducedWidth = Math.floor((width * MAXIMUM_HEIGHT) / height);
-    return [reducedWidth, MAXIMUM_HEIGHT];
-  }
+    if (height > MAXIMUM_HEIGHT) {
+        const reducedWidth = Math.floor((width * MAXIMUM_HEIGHT) / height);
+        return [reducedWidth, MAXIMUM_HEIGHT];
+    }
 
-  if (width > MAXIMUM_WIDTH) {
-    const reducedHeight = Math.floor((height * MAXIMUM_WIDTH) / width);
-    return [MAXIMUM_WIDTH, reducedHeight];
-  }
+    if (width > MAXIMUM_WIDTH) {
+        const reducedHeight = Math.floor((height * MAXIMUM_WIDTH) / width);
+        return [MAXIMUM_WIDTH, reducedHeight];
+    }
 
-  return [width, height];
+    return [width, height];
 };
