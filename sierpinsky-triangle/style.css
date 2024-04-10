@@ -16,3 +16,11 @@ canvas {
     width: 100vw;
     height: 100vh;
 }
+
+#back {
+    color: white;
+    z-index: 999;
+    position: absolute;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}

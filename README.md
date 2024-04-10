@@ -6,3 +6,4 @@
 |[flow-field](https://dylandibeneditto.github.io/experiments/flow-field/index.html)|A generative art experiment which uses perlin noise to generate a 2D array of angles which a particle system moves along|
 |[tictactoe-minimax](https://dylandibeneditto.github.io/experiments/tictactoe-minimax/index.html)|AI algorithm which plays solved tictactoe using the minimax algorithm and is impossible to beat|
 |[ascii-generator](https://dylandibeneditto.github.io/experiments/ascii-generator/index.html)|Algorithm that converts images into ASCII art|
+|[sierpinsky-triangle](https://dylandibeneditto.github.io/experiments/sierpinsky-triangle/index.html)|A generative art experiment which displays the properties of the sierpinsky triangle fractal|
